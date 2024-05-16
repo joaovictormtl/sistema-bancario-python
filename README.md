@@ -1,11 +1,21 @@
-# Projeto: Sistema Bancário com Python
+<h1 style="display: flex; gap: 10px; align-items: center">
+    <img src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png" height="50px">
+    <span>Desafios: Sistema Bancário com Python</span>
+</h1>
 
 **Bootcamp da DIO**
 
-### Versão 1: Depósito, Saque e Extrato:
+### sistema_bancario_v1:
 
-Depósito: não deve ser possível depositar valores negativos e nem nulos. Todos os depósitos devem se armazenados em uma variável e exibidos no extrato.
+Criação das operações de saque, depósito e extrato.
 
-Saque: apenas 3 saques diários com limite máximo de R$ 500,00 por saque podem ser realizados. Caso o usuário não tenha saldo em conta, deve ser exibida uma mensagem informando que não será possível sacar o dinheiro.
+**Saque:** apenas 3 saques diários são permitidos com um limite de R$ 500,00 por saque.
 
-Extrato: deve mostrar todos os depósitos e saques realizados na conta até então.
+**Depósito:** só é possível depositar valores positivos.
+
+**Extrato:** retorna o saldo e o histórico de saques e depósitos efetuados.
+
+### sistema_bancario_v2:
+
+Todas as operações Modularizadas.<br>
+Novas funcionalidades: criar usuário e criar conta.
