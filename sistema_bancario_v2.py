@@ -32,14 +32,34 @@ def extrato(saldo, /, *, extrato_hist):
     print("Não foram realizadas movimentações.\n" if not extrato_hist else extrato_hist)
     print(f"Saldo: {saldo:.2f}")
 
-def criar_usuario(**usuario):
-    print()
+def filtrar_usuarios(cpf, usuarios):
+    for usuario in usuarios:
+        if usuario["cpf"] == cpf:
+            return True
+    return False
+
+def criar_usuario(usuarios):
+    cpf = input("Informe o CPF: ")
+    usuario = filtrar_usuarios(cpf, usuarios)
+
+    if usuario:
+        print("Já existe um usuário com este CPF")
+        return
+    
+    nome = input("Nome: ")
+    data_nascimento = input("Data de Nascimento (dd/mm/aaaa): ")
+    endereco = input("Logradouro - nº - Bairro - Cidade/Sigla: ")
+    
+    usuarios.append({"nome":nome, "data_nascimento":data_nascimento, "cpf":cpf, "endereco":endereco})
+
+    print("Usuário cadastrado com sucesso")
 
 saldo = 800
 saques_diarios = 0
 extrato_hist = ""
 limite = 500
 usuarios = []
+contas = []
 
 while True:
     menu()
