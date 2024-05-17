@@ -3,6 +3,9 @@ def menu():
 [1] Sacar
 [2] Depositar
 [3] Extrato
+[4] Criar Usuário
+[5] Criar Conta
+[6] Listar Contas          
 [0] Sair
 """)
 
@@ -13,13 +16,13 @@ def sacar(*, saldo, valor, extrato_hist, limite, saques_diarios):
                 saldo -= valor
                 saques_diarios += 1
                 extrato_hist += f"Saque: R$ {valor:.2f}\n"
-                return saldo, extrato_hist
             else:
                 print("Valor de saque superior ao limite.")
         else:
             print("Saldo Insuficiente.")
     else:
         print("Limite de saques diários alcançado.")
+    return saldo, extrato_hist
 
 def depositar(saldo, valor, extrato_hist, /):
     if valor <= 0:
@@ -27,7 +30,7 @@ def depositar(saldo, valor, extrato_hist, /):
     else:
         saldo += valor
         extrato_hist += f"Depósito: R$ {valor:.2f}\n"
-        return saldo, extrato_hist
+    return saldo, extrato_hist
 
 def extrato(saldo, /, *, extrato_hist):
     print("\n========== EXTRATO ===========")
@@ -74,9 +77,13 @@ while True:
     elif opcao == 2:
         valor = float(input("\nValor de depósito: "))
         saldo, extrato_hist = depositar(saldo, valor, extrato_hist)
-        
+
     elif opcao == 3:
         extrato(saldo, extrato_hist=extrato_hist)
+
+    elif opcao == 4:
+        criar_usuario(usuarios)
+
     elif opcao == 0:
         print("Saindo...")
         break
