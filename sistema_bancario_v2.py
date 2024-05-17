@@ -59,6 +59,15 @@ def criar_usuario(usuarios):
 
     print("Usuário cadastrado com sucesso")
 
+def criar_conta(agencia, numero_conta, usuarios):
+    cpf = input("Inform o CPF do usuário: ")
+    usuario = filtrar_usuarios(cpf, usuarios)
+
+    if usuario:
+        print("Conta criada com sucesso!")
+        return {"agencia":agencia, "numero_conta":numero_conta, "usuario":usuario}
+    print("Usuário não encontrado.")
+
 def main():
     saldo = 800
     saques_diarios = 0
@@ -85,6 +94,10 @@ def main():
 
         elif opcao == 4:
             criar_usuario(usuarios)
+
+        elif opcao == 5:
+            numero_conta = len(contas) + 1
+            conta = criar_conta(AGENCIA, numero_conta, usuarios)
 
         elif opcao == 0:
             print("Saindo...")
