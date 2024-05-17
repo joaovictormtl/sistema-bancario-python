@@ -6,7 +6,7 @@ def menu():
 [0] Sair
 """)
 
-def saque(*, saldo, valor, extrato_hist, limite, saques_diarios):
+def sacar(*, saldo, valor, extrato_hist, limite, saques_diarios):
     if saques_diarios < 3:
         if saldo >= valor:
             if valor <= limite:
@@ -20,7 +20,7 @@ def saque(*, saldo, valor, extrato_hist, limite, saques_diarios):
     else:
         print("Limite de saques diários alcançado.")
 
-def deposito(saldo, valor, extrato_hist, /):
+def depositar(saldo, valor, extrato_hist, /):
     if valor <= 0:
         print("Depósito não pode ser inferior ou igual a 0.")
     else:
@@ -67,11 +67,11 @@ while True:
 
     if opcao == 1:
         valor = float(input("\nValor de Saque: "))
-        print(saque(saldo=saldo, valor=valor, extrato_hist=extrato_hist, saques_diarios=saques_diarios, limite=limite))
+        print(sacar(saldo=saldo, valor=valor, extrato_hist=extrato_hist, saques_diarios=saques_diarios, limite=limite))
        
     elif opcao == 2:
         valor = float(input("\nValor de depósito: "))
-        print(deposito(saldo, valor, extrato_hist))
+        print(depositar(saldo, valor, extrato_hist))
         
     elif opcao == 3:
         extrato(saldo, extrato_hist=extrato_hist)
