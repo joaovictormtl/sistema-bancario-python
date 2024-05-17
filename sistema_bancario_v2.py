@@ -59,34 +59,36 @@ def criar_usuario(usuarios):
 
     print("Usuário cadastrado com sucesso")
 
-saldo = 800
-saques_diarios = 0
-extrato_hist = ""
-LIMITE = 500
-AGENCIA = "0002"
-usuarios = []
-contas = []
+def main():
+    saldo = 800
+    saques_diarios = 0
+    extrato_hist = ""
+    LIMITE = 500
+    AGENCIA = "0001"
+    usuarios = []
+    contas = []
 
-while True:
-    menu()
-    opcao = int(input(": "))
+    while True:
+        menu()
+        opcao = int(input(": "))
 
-    if opcao == 1:
-        valor = float(input("\nValor de Saque: "))
-        saldo, extrato_hist = sacar(saldo=saldo, valor=valor, extrato_hist=extrato_hist, saques_diarios=saques_diarios, limite=limite)
-       
-    elif opcao == 2:
-        valor = float(input("\nValor de depósito: "))
-        saldo, extrato_hist = depositar(saldo, valor, extrato_hist)
+        if opcao == 1:
+            valor = float(input("\nValor de Saque: "))
+            saldo, extrato_hist = sacar(saldo=saldo, valor=valor, extrato_hist=extrato_hist, saques_diarios=saques_diarios, limite=LIMITE)
+        
+        elif opcao == 2:
+            valor = float(input("\nValor de depósito: "))
+            saldo, extrato_hist = depositar(saldo, valor, extrato_hist)
 
-    elif opcao == 3:
-        extrato(saldo, extrato_hist=extrato_hist)
+        elif opcao == 3:
+            extrato(saldo, extrato_hist=extrato_hist)
 
-    elif opcao == 4:
-        criar_usuario(usuarios)
+        elif opcao == 4:
+            criar_usuario(usuarios)
 
-    elif opcao == 0:
-        print("Saindo...")
-        break
-    else:
-        print("Digite uma opcao válida!")
+        elif opcao == 0:
+            print("Saindo...")
+            break
+        else:
+            print("Digite uma opcao válida!")
+main()
