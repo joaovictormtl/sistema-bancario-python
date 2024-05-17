@@ -62,7 +62,8 @@ def criar_usuario(usuarios):
 saldo = 800
 saques_diarios = 0
 extrato_hist = ""
-limite = 500
+LIMITE = 500
+AGENCIA = "0002"
 usuarios = []
 contas = []
 
