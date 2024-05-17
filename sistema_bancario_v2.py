@@ -11,8 +11,9 @@ def sacar(*, saldo, valor, extrato_hist, limite, saques_diarios):
         if saldo >= valor:
             if valor <= limite:
                 saldo -= valor
-                extrato_hist += f"Saque: R$ {valor:.2f}"
-                return f"\n{extrato_hist}\nSaldo: {saldo:.2f}"
+                saques_diarios += 1
+                extrato_hist += f"Saque: R$ {valor:.2f}\n"
+                return saldo, extrato_hist
             else:
                 print("Valor de saque superior ao limite.")
         else:
@@ -25,7 +26,8 @@ def depositar(saldo, valor, extrato_hist, /):
         print("Depósito não pode ser inferior ou igual a 0.")
     else:
         saldo += valor
-        return f"\n{extrato_hist}\nSaldo: {saldo:.2f}"
+        extrato_hist += f"Depósito: R$ {valor:.2f}\n"
+        return saldo, extrato_hist
 
 def extrato(saldo, /, *, extrato_hist):
     print("\n========== EXTRATO ===========")
@@ -67,11 +69,11 @@ while True:
 
     if opcao == 1:
         valor = float(input("\nValor de Saque: "))
-        print(sacar(saldo=saldo, valor=valor, extrato_hist=extrato_hist, saques_diarios=saques_diarios, limite=limite))
+        saldo, extrato_hist = sacar(saldo=saldo, valor=valor, extrato_hist=extrato_hist, saques_diarios=saques_diarios, limite=limite)
        
     elif opcao == 2:
         valor = float(input("\nValor de depósito: "))
-        print(depositar(saldo, valor, extrato_hist))
+        saldo, extrato_hist = depositar(saldo, valor, extrato_hist)
         
     elif opcao == 3:
         extrato(saldo, extrato_hist=extrato_hist)
