@@ -1,6 +1,6 @@
 <h1 style="display: flex; gap: 10px; align-items: center">
     <img src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png" height="50px">
-    <span>Desafios: Sistema Bancário com Python</span>
+    <span>Projeto: Sistema Bancário com Python</span>
 </h1>
 
 **Bootcamp da DIO**
