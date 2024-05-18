@@ -40,7 +40,7 @@ def extrato(saldo, /, *, extrato_hist):
 def filtrar_usuarios(cpf, usuarios):
     for usuario in usuarios:
         if usuario["cpf"] == cpf:
-            return True
+            return usuario
     return False
 
 def criar_usuario(usuarios):
@@ -70,7 +70,7 @@ def criar_conta(agencia, numero_conta, usuarios):
 
 def listar_contas(contas):
     for conta in contas:
-        print(f"\nAgência: {conta["agencia"]}\nN. Conta: {conta["numero_conta"]}\nUsuário: {conta["usuario"]}\n")
+        print(f"\nAgência: {conta['agencia']}\nN. Conta: {conta['numero_conta']}\nUsuário: {conta['usuario']['nome']}\n")
 
 def main():
     saldo = 800
