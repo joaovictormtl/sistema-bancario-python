@@ -80,6 +80,7 @@ def main():
     AGENCIA = "0001"
     usuarios = []
     contas = []
+    numero_conta = 1
 
     while True:
         menu()
@@ -100,11 +101,11 @@ def main():
             criar_usuario(usuarios)
 
         elif opcao == 5:
-            numero_conta = len(contas) + 1
             conta = criar_conta(AGENCIA, numero_conta, usuarios)
 
             if conta:
                 contas.append(conta)
+                numero_conta +=1
 
         elif opcao == 6:
             listar_contas(contas)
